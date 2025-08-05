@@ -6,3 +6,6 @@
 
 
 本当はepollはevent.evを観察して、送信と受信と処理を完全に分けられるのだが、まぁ、未熟だったなら仕方無い。今の自分はまだギリ18だができる。
+
+コンパイルコマンドは以下となる
+gcc login.c -lssl -lcrypto -lpq -largon2 -fstack-protector-all -D_FORTIFY_SOURCE=3 -O2 -Wl,-z,relro,-z,now -fPIE -pie -fstack-clash-protection -fcf-protection=full -D_GLIBCXX_ASSERTIONS -Wextra -Wall -Werror -Wshadow -Wcast-align -Wconversion -Wformat=2 -Wnull-dereference -Wfloat-equal -Wpedantic -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition -Wunreachable-code -Wduplicated-cond -Wlogical-op -Wrestrict -Wno-unused-parameter -Wformat-security -Werror=format-security -fsanitize=address,undefined -Wl,-z,noexecstack && strip ./a.out
